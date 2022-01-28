@@ -10,14 +10,17 @@ exports.AppModule = void 0;
 var common_1 = require("@nestjs/common");
 var app_controller_1 = require("./app.controller");
 var app_service_1 = require("./app.service");
-var post_module_1 = require("./post/post.module");
 var typeorm_1 = require("@nestjs/typeorm");
+var product_module_1 = require("./product/product.module");
+var category_module_1 = require("./category/category.module");
+var brand_module_1 = require("./brand/brand.module");
+var tags_module_1 = require("./tags/tags.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         common_1.Module({
-            imports: [post_module_1.PostModule, typeorm_1.TypeOrmModule.forRoot({
+            imports: [typeorm_1.TypeOrmModule.forRoot({
                     type: 'postgres',
                     host: 'localhost',
                     port: 5433,
@@ -26,7 +29,7 @@ var AppModule = /** @class */ (function () {
                     database: 'todo',
                     entities: ["dist/**/*.entity{.ts,.js}"],
                     synchronize: true
-                })],
+                }), product_module_1.ProductModule, category_module_1.CategoryModule, brand_module_1.BrandModule, tags_module_1.TagsModule],
             controllers: [app_controller_1.AppController],
             providers: [app_service_1.AppService]
         })
