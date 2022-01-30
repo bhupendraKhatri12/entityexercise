@@ -13,9 +13,8 @@ var app_service_1 = require("./app.service");
 var typeorm_1 = require("@nestjs/typeorm");
 var product_module_1 = require("./product/product.module");
 var category_module_1 = require("./category/category.module");
-var brand_module_1 = require("./brand/brand.module");
-var tags_module_1 = require("./tags/tags.module");
-var product_tags_tags_module_1 = require("./product-tags-tags/product-tags-tags.module");
+// import { BrandModule } from './brand/brand.module';
+var tag_module_1 = require("./tag/tag.module");
 var image_module_1 = require("./image/image.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -29,9 +28,9 @@ var AppModule = /** @class */ (function () {
                     username: 'postgres',
                     password: 'qwerty',
                     database: 'todo',
-                    entities: ["/**/*.entity{.ts,.js}"],
+                    entities: ['src/**/*.entity{.ts,.js}'],
                     synchronize: true
-                }), product_module_1.ProductModule, category_module_1.CategoryModule, brand_module_1.BrandModule, tags_module_1.TagsModule, product_tags_tags_module_1.ProductTagsTagsModule, image_module_1.ImageModule],
+                }), product_module_1.ProductModule, category_module_1.CategoryModule, tag_module_1.TagModule, image_module_1.ImageModule, tag_module_1.TagModule],
             controllers: [app_controller_1.AppController],
             providers: [app_service_1.AppService]
         })

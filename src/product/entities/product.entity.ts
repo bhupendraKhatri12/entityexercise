@@ -1,6 +1,7 @@
-import { PrimaryGeneratedColumn, Entity, Column, OneToOne, JoinColumn, JoinTable,ManyToOne } from "typeorm"
+import { PrimaryGeneratedColumn, Entity, Column, OneToOne, JoinColumn, JoinTable, ManyToOne, ManyToMany } from "typeorm"
 import { Brand } from "../../brand/entities/brand.entity"
-import { Category } from "src/category/entities/category.entity";
+import { Category } from "../../category/entities/category.entity";
+import { Tag } from "../../tag/entities/tag.entity";
 
 @Entity("Product")
 export class Product {
@@ -12,34 +13,40 @@ export class Product {
     skuNumber: number
 
     // one one relationship  in the situations 
-    @OneToOne((type) => Brand, brand => brand.id)
+    @OneToOne(() => Brand, brand => brand.id)
     brandid: Brand
 
 
     @Column()
     countryOfOrigin: string
-     
+
 
     @Column()
     name: string;
 
     @Column()
-    description:string;
-     
-    @Column()
-    userid:number;
-    
-
-    @ManyToOne((type)=>Category,categories=> categories.id)
-    categoriesId:Category[]
+    description: string;
 
     @Column()
-    abv:string
+    userid: number;
 
-    @Column({type:Date})
-     createdAt:Date
 
-     @Column({type:Date})
-     updateAt:Date
+    @Column()
+    categoriesId: Category[]
 
+    @Column()
+    abv: string
+
+    @Column({ type: Date })
+    createdAt: Date
+
+    @Column({ type: Date })
+    updateAt: Date
+
+    @ManyToOne(() => Category, categories => categories.product)
+    categories: Category
+
+    @ManyToMany(()=>Tag, tags=>tags.products)
+    @JoinTable()
+    tags:Tag[]
 }

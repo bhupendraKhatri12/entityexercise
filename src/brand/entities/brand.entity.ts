@@ -1,5 +1,5 @@
-import { PrimaryGeneratedColumn, Entity, Column, OneToOne, JoinColumn, JoinTable, OneToMany } from "typeorm"
-import { Product } from "../../product/entities/product.entity"
+import { PrimaryGeneratedColumn, Entity, Column, OneToOne, JoinColumn, JoinTable, OneToMany } from "typeorm";
+import { Product } from "../../product/entities/product.entity";
 @Entity("Brand")
 export class Brand {
 

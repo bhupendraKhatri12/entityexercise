@@ -3,11 +3,18 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './product/product.module';
-import { CategoryModule } from './category/category.module';
-import { BrandModule } from './brand/brand.module';
-import { TagsModule } from './tags/tags.module';
-import { ProductTagsTagsModule } from './product-tags-tags/product-tags-tags.module';
+import { CategoryModule } from "./category/category.module";
+// import { BrandModule } from './brand/brand.module';
+import { TagModule } from './tag/tag.module';
 import { ImageModule } from './image/image.module';
+import {Product } from "./product/entities/product.entity"
+import {Category } from "./category/entities/category.entity"
+import {Image } from "./image/entities/image.entity"
+import {Brand } from "./brand/entities/brand.entity"
+import {Tag } from "./tag/entities/tag.entity"
+
+
+
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -17,9 +24,9 @@ import { ImageModule } from './image/image.module';
     username: 'postgres',
     password: 'qwerty',
     database: 'todo',
-    entities: ["/**/*.entity{.ts,.js}"],
+    entities: ['src/**/*.entity{.ts,.js}'],
     synchronize:true
-  }), ProductModule, CategoryModule, BrandModule, TagsModule, ProductTagsTagsModule, ImageModule],
+  }), ProductModule, CategoryModule, TagModule, ImageModule, TagModule],
   controllers: [AppController],
   providers: [AppService],
   

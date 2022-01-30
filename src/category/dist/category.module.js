@@ -12,7 +12,7 @@ var category_service_1 = require("./category.service");
 var category_controller_1 = require("./category.controller");
 var typeorm_1 = require("@nestjs/typeorm");
 var category_entity_1 = require("./entities/category.entity");
-var tag_entity_1 = require("../tags/entities/tag.entity");
+var tag_entity_1 = require("../tag/entities/tag.entity");
 var CategoryModule = /** @class */ (function () {
     function CategoryModule() {
     }

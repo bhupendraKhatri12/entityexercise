@@ -1,10 +1,11 @@
+import { Product } from "../../product/entities/product.entity";
 import { PrimaryGeneratedColumn, ManyToMany, Entity, Column, OneToOne, JoinColumn, JoinTable, OneToMany, ManyToOne } from "typeorm"
-import { ProductTagsTag } from "src/product-tags-tags/entities/product-tags-tag.entity";
 import { Category } from "../../category/entities/category.entity";
 
 
 @Entity("Tag")
 export class Tag {
+    
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -23,7 +24,8 @@ export class Tag {
     @ManyToMany(() => Category, category => category.tags)
     categories: Category[]
 
-
+    @ManyToMany(()=>Product, products=>products.tags)
+    products:Product[]
 
 
 

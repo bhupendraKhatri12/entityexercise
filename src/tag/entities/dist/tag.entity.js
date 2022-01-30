@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.Tag = void 0;
+var product_entity_1 = require("../../product/entities/product.entity");
 var typeorm_1 = require("typeorm");
 var category_entity_1 = require("../../category/entities/category.entity");
 var Tag = /** @class */ (function () {
@@ -30,6 +31,9 @@ var Tag = /** @class */ (function () {
     __decorate([
         typeorm_1.ManyToMany(function () { return category_entity_1.Category; }, function (category) { return category.tags; })
     ], Tag.prototype, "categories");
+    __decorate([
+        typeorm_1.ManyToMany(function () { return product_entity_1.Product; }, function (products) { return products.tags; })
+    ], Tag.prototype, "products");
     Tag = __decorate([
         typeorm_1.Entity("Tag")
     ], Tag);

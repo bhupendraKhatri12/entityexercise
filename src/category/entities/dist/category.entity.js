@@ -9,7 +9,7 @@ exports.__esModule = true;
 exports.Category = void 0;
 var typeorm_1 = require("typeorm");
 var product_entity_1 = require("../../product/entities/product.entity");
-var tag_entity_1 = require("../../tags/entities/tag.entity");
+var tag_entity_1 = require("../../tag/entities/tag.entity");
 var Category = /** @class */ (function () {
     function Category() {
     }
@@ -17,7 +17,7 @@ var Category = /** @class */ (function () {
         typeorm_1.PrimaryGeneratedColumn()
     ], Category.prototype, "id");
     __decorate([
-        typeorm_1.ManyToMany(function (type) { return tag_entity_1.Tag; }, function (tags) { return tags.categories; }),
+        typeorm_1.ManyToMany(function () { return tag_entity_1.Tag; }, function (tags) { return tags.categories; }, { cascade: true }),
         typeorm_1.JoinTable()
     ], Category.prototype, "tags");
     __decorate([
@@ -30,7 +30,7 @@ var Category = /** @class */ (function () {
         typeorm_1.Column()
     ], Category.prototype, "mpath");
     __decorate([
-        typeorm_1.OneToMany(function () { return product_entity_1.Product; }, function (product) { return product.categoriesId; })
+        typeorm_1.OneToMany(function () { return product_entity_1.Product; }, function (product) { return product.categories; })
     ], Category.prototype, "product");
     __decorate([
         typeorm_1.Column()

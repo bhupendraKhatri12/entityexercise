@@ -6,23 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.TagsModule = void 0;
+exports.TagModule = void 0;
 var common_1 = require("@nestjs/common");
-var tags_service_1 = require("./tags.service");
-var tags_controller_1 = require("./tags.controller");
-var category_entity_1 = require("../category/entities/category.entity");
+var tag_service_1 = require("./tag.service");
+var tag_controller_1 = require("./tag.controller");
 var typeorm_1 = require("@nestjs/typeorm");
 var tag_entity_1 = require("./entities/tag.entity");
-var TagsModule = /** @class */ (function () {
-    function TagsModule() {
+var category_entity_1 = require("../category/entities/category.entity");
+var product_entity_1 = require("../product/entities/product.entity");
+var TagModule = /** @class */ (function () {
+    function TagModule() {
     }
-    TagsModule = __decorate([
+    TagModule = __decorate([
         common_1.Module({
-            imports: [typeorm_1.TypeOrmModule.forFeature([tag_entity_1.Tag, category_entity_1.Category])],
-            controllers: [tags_controller_1.TagsController],
-            providers: [tags_service_1.TagsService]
+            imports: [typeorm_1.TypeOrmModule.forFeature([tag_entity_1.Tag, category_entity_1.Category, product_entity_1.Product])],
+            controllers: [tag_controller_1.TagController],
+            providers: [tag_service_1.TagService]
         })
-    ], TagsModule);
-    return TagsModule;
+    ], TagModule);
+    return TagModule;
 }());
-exports.TagsModule = TagsModule;
+exports.TagModule = TagModule;
