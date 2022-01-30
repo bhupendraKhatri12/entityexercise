@@ -17,7 +17,7 @@ import { ImageModule } from './image/image.module';
     username: 'postgres',
     password: 'qwerty',
     database: 'todo',
-    entities: ["dist/**/*.entity{.ts,.js}"],
+    entities: ["/**/*.entity{.ts,.js}"],
     synchronize:true
   }), ProductModule, CategoryModule, BrandModule, TagsModule, ProductTagsTagsModule, ImageModule],
   controllers: [AppController],

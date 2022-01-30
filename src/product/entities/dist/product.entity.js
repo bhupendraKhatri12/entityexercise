@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.Product = void 0;
 var typeorm_1 = require("typeorm");
+var brand_entity_1 = require("../../brand/entities/brand.entity");
+var category_entity_1 = require("src/category/entities/category.entity");
 var Product = /** @class */ (function () {
     function Product() {
     }
@@ -18,11 +20,32 @@ var Product = /** @class */ (function () {
         typeorm_1.Column()
     ], Product.prototype, "skuNumber");
     __decorate([
-        typeorm_1.Column()
+        typeorm_1.OneToOne(function (type) { return brand_entity_1.Brand; }, function (brand) { return brand.id; })
     ], Product.prototype, "brandid");
     __decorate([
         typeorm_1.Column()
     ], Product.prototype, "countryOfOrigin");
+    __decorate([
+        typeorm_1.Column()
+    ], Product.prototype, "name");
+    __decorate([
+        typeorm_1.Column()
+    ], Product.prototype, "description");
+    __decorate([
+        typeorm_1.Column()
+    ], Product.prototype, "userid");
+    __decorate([
+        typeorm_1.ManyToOne(function (type) { return category_entity_1.Category; }, function (categories) { return categories.id; })
+    ], Product.prototype, "categoriesId");
+    __decorate([
+        typeorm_1.Column()
+    ], Product.prototype, "abv");
+    __decorate([
+        typeorm_1.Column({ type: Date })
+    ], Product.prototype, "createdAt");
+    __decorate([
+        typeorm_1.Column({ type: Date })
+    ], Product.prototype, "updateAt");
     Product = __decorate([
         typeorm_1.Entity("Product")
     ], Product);
