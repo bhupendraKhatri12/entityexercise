@@ -35,6 +35,9 @@ var Category = /** @class */ (function () {
     __decorate([
         typeorm_1.Column()
     ], Category.prototype, "parentCategoryId");
+    Category = __decorate([
+        typeorm_1.Entity("Category")
+    ], Category);
     return Category;
 }());
 exports.Category = Category;

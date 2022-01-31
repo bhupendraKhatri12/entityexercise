@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './product/product.module';
 import { CategoryModule } from "./category/category.module";
-// import { BrandModule } from './brand/brand.module';
+import { BrandModule } from './brand/brand.module';
 import { TagModule } from './tag/tag.module';
 import { ImageModule } from './image/image.module';
 import {Product } from "./product/entities/product.entity"
@@ -24,9 +24,9 @@ import {Tag } from "./tag/entities/tag.entity"
     username: 'postgres',
     password: 'qwerty',
     database: 'todo',
-    entities: ['src/**/*.entity{.ts,.js}'],
+    entities: ["dist/**/*.entity{.ts,.js}"],
     synchronize:true
-  }), ProductModule, CategoryModule, TagModule, ImageModule, TagModule],
+  }), ProductModule, CategoryModule, TagModule, ImageModule,BrandModule, TagModule],
   controllers: [AppController],
   providers: [AppService],
   

@@ -2,6 +2,8 @@ import { PrimaryGeneratedColumn, Entity, Column, OneToOne, ManyToMany, JoinColum
 import { Product } from "../../product/entities/product.entity"
 import { Tag } from "../../tag/entities/tag.entity";
 
+
+@Entity("Category")
 export class Category {
 
 
